@@ -18,6 +18,11 @@ const serverConfig = {
     {
       urls: ["stun:stun1.l.google.com:19302", "stun:stun2.l.google.com:19302"],
     },
+    {
+      urls: import.meta.env.VITE_TURN_URL,
+      credential: import.meta.env.VITE_TURN_CREDENTIAL,
+      username: import.meta.env.VITE_TURN_USER,
+    },
   ],
   iceCandidatePoolSize: 10,
 };
