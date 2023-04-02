@@ -3,6 +3,7 @@ import {
   DocumentData,
   QuerySnapshot,
   addDoc,
+  deleteDoc,
   collection,
   doc,
   getDoc,
@@ -125,6 +126,10 @@ class Conexion {
       this.agregarPeerConnectionEventListeners();
     }
   };
+
+  async limpiarSala(id: string) {
+    await deleteDoc(doc(this.db, "rooms", id));
+  }
 
   private agregarEventListenersAlCanal() {
     if (!this.canal) return;

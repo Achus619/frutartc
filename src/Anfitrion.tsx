@@ -1,16 +1,19 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Conexion from "./Conexion";
 import Frutas from "./Frutas";
 
 export default function Anfitrion() {
   const { salaID: id } = useParams<{ salaID: string }>();
-  const conexionCreadaRef = useRef(false);
   const [listo, setListo] = useState(false);
   useEffect(() => {
-    if (!id || conexionCreadaRef.current) return;
-    conexionCreadaRef.current = true;
+    if (!id) return;
     Conexion.crearSala(id).then(() => setListo(true));
+
+    return () => {
+      Conexion.cerrarConexion();
+      Conexion.limpiarSala(id);
+    };
   }, []);
 
   return (
