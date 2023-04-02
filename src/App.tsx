@@ -6,14 +6,12 @@ import Invitade from "./Invitade";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/:salaID/anfitrion" element={<Anfitrion />}></Route>
-          <Route path="/:salaID" element={<Invitade />}></Route>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
-      </div>
+    <Router basename="/frutartc">
+      <Routes>
+        <Route path="/:salaID/anfitrion" element={<Anfitrion />}></Route>
+        <Route path="/:salaID" element={<Invitade />}></Route>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
     </Router>
   );
 }
