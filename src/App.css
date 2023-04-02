@@ -1,0 +1,13 @@
+.fruta {
+  font-size: large;
+  position: absolute;
+  animation: flotar-y-desaparecer 2s ease-in 200ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flotar-y-desaparecer {
+  to {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+}
